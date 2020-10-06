@@ -27,21 +27,22 @@
 	<link href='https://fonts.googleapis.com/css?family=Stylish&subset=latin' rel='stylesheet' type='text/css'>
 	
 	<script>
-	var PAIRSREMAINING = 10;
-	var ORDEREDLIST = new Array();
-	var SHUFFLEDLIST = new Array();
-	var GAMESTATE = 0;
-	var FINALSCORE = 0;
-	var MATCH1 = "";
-	var MATCH2 = "";
-	var POSITION1 = "";
-	var POSITION2 = "";
-	var CARDBACK = "";
-	var TIMERINTERVAL;
-	var TEMP1;
-	var TEMP2;
-	var INDEX1;
-	var DEALINTERVAL;
+	var gblPairsRemaing = 10;
+	var gblOrderedList = [];
+	var gblShuffledList = [];
+	var gblGameState = 0;
+	var gblFinalScore = 0;
+	var gblFirstChoice = "";
+	var gblSecondChoice = "";
+	var gblFirstCardPos = "";
+	var gblSecondCardPos = "";
+	var gblCardBack = "";
+	var gblTimerInterval;
+	var gblCardElementId;
+	var gblCardImageURL;
+	var gblCardIndex;
+	var gblDealInterval;
+	var gblNumCards = 20;
 	
 	</script>
 		
@@ -52,7 +53,7 @@
 	<!-- copy these lines to your document: -->
 
 	<div id="index_hype_container" class="HYPE_document" style="margin:auto;position:relative;width:800px;height:600px;overflow:hidden;">
-		<script type="text/javascript" charset="utf-8" src="index.hyperesources/index_hype_generated_script.js?45732"></script>
+		<script type="text/javascript" charset="utf-8" src="index.hyperesources/index_hype_generated_script.js?82111"></script>
 	</div>
 
 	<!-- end copy -->
