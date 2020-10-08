@@ -33,23 +33,34 @@
 	</style>
 	
 	<script>
-	var gblPairsRemaing = 10;
-	var gblOrderedList = [];
-	var gblShuffledList = [];
-	var gblGameState = 0;
-	var gblFinalScore = 0;
-	var gblFirstChoice = "";
-	var gblSecondChoice = "";
-	var gblFirstCardPos = "";
-	var gblSecondCardPos = "";
-	var gblCardBack = "";
-	var gblTimerInterval;
-	var gblCardElementId;
-	var gblCardImageURL;
-	var gblCardIndex;
-	var gblDealInterval;
-	var gblNumCards = 20;
-	var gblCardThrower;
+	
+	var gblPairsRemaing = 10,				// Keeps track of the number of remaing pairs of matching cars the user has yet to find
+		 gblOrderedList,						// Initially an array of image filenames for each card, in order
+		 gblShuffledList,					// Will become a randomly shuffled array of gblOrderedList
+		 
+		 /*
+		 	There are four game states: "not-in-play", "no-card-selected", "one-card-selected", and "bad-match".
+		 	
+		 	"not-in-play" - The game has not yet started, and card-clicks are ignored.
+		 	"no-card-selected" - Cards may be clicked; no card has yet been selected for a match attempt.
+		 	"one-card-selected" - Cards may be clicked; one card has been revealed, and the game is waiting for the player to selected a second card.
+		 	"bad-match" - The player has chosen an incorrect match, and card clicks are ignored.
+		 */
+		 
+		 gblGameState = "not-in-play",	// The current game state
+		 gblFinalScore = 0,					// The number of seconds it took the player to find all the matching pairs
+		 gblFirstChoice = "",				// Stores the image filename of the first card selected
+		 gblSecondChoice = "",				// Stores the image filename of the second card selected
+		 gblFirstCardPos = "",				// Stores the element id of the first card selected
+		 gblSecondCardPos = "",				// Stores the element id of the second card selected
+		 gblCardBack = "",					// Used to display the card-back image
+		 gblTimerInterval,					// References the timer interval
+		 gblCardElementId,					// A card's element id
+		 gblCardImageURL,					// Used to display the card image or the card-back image
+		 gblCardIndex,						// A card's element id's numerical affix. For example, the card with element id "position1" would store 1 in this variable
+		 gblDealInterval;					// References the card-dealing interval
+	const gblNumCards = 20;					// The total number of cards
+	var gblCardThrower;						// References the card-throwing interval during the credits sequence
 	
 	</script>
 		
@@ -60,7 +71,7 @@
 	<!-- copy these lines to your document: -->
 
 	<div id="index_hype_container" class="HYPE_document" style="margin:auto;position:relative;width:800px;height:600px;overflow:hidden;">
-		<script type="text/javascript" charset="utf-8" src="index.hyperesources/index_hype_generated_script.js?20326"></script>
+		<script type="text/javascript" charset="utf-8" src="index.hyperesources/index_hype_generated_script.js?31198"></script>
 	</div>
 
 	<!-- end copy -->
